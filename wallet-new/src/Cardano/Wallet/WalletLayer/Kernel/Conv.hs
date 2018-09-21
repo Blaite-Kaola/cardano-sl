@@ -193,6 +193,7 @@ toAddress acc hdAddress =
     V1.WalletAddress (V1 cardanoAddress)
                      (addressMeta ^. addressMetaIsUsed)
                      (addressMeta ^. addressMetaIsChange)
+                     (V1.addressIsOursFromUsed $ addressMeta ^. addressMetaIsUsed)
   where
     cardanoAddress = hdAddress ^. HD.hdAddressAddress . fromDb
     addressMeta    = acc ^. HD.hdAccountState . HD.hdAccountStateCurrent . cpAddressMeta cardanoAddress

@@ -177,7 +177,8 @@ instance Migrate V0.CAddress V1.WalletAddress where
     eitherMigrate V0.CAddress{..} = do
         addrId <- eitherMigrate cadId
         let addrUsed = cadIsUsed
-        let addrChangeAddress = cadIsChange
+            addrChangeAddress = cadIsChange
+            addrIsOurs = V1.addressIsOursFromUsed addrUsed
         return V1.WalletAddress{..}
 
 -- | Migrates to a V1 `SyncProgress` by computing the percentage as
