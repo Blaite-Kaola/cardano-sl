@@ -51,7 +51,8 @@ let
     stack2nix = supportedSystems;
     purescript = supportedSystems;
     daedalus-bridge = supportedSystems;
-    everything-static = [ "x86_64-linux" ];
+    everything-static = supportedSystems;
+    everything = supportedSystems;
   };
   platforms' = {
     connectScripts.mainnet.wallet   = [ "x86_64-linux" "x86_64-darwin" ];
